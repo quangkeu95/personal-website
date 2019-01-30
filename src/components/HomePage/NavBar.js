@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import headerBackground from "./quang_sapa.jpg";
 
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -10,31 +9,14 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import Typography from "@material-ui/core/Typography";
 
 import MenuIcon from "@material-ui/icons/Menu";
-import Search from "@material-ui/icons/Search";
-
-// import NavBar from "./NavBar";
-
-// const StyledHeader = styled.header`
-// 	height: 100vh;
-// 	width: 100%;
-// 	background-image: url(${headerBackground});
-// 	background-color: #161415;
-// 	background-repeat: no-repeat;
-// 	background-size: cover;
-// 	background-position: top;
-// 	text-align: center;
-// 	overflow: hidden;
-// `;
 
 const StyledAppBar = styled(AppBar)`
 	&& {
-		background-color: transparent;
-		/* background-color: #DDD; */
+		background-color: #FFF;
 		box-shadow: none;
-		height: 15vh;
+		height: 10vh;
 	}
 `;
 
@@ -52,39 +34,40 @@ const styles = () => ({
 	}
 });
 
-function Header(props) {
+function NavBar(props) {
 	const { classes } = props;
 
 	return (
 		<StyledAppBar position="fixed">
-			<Hidden smUp>
+			<Hidden mdUp>
 				<Grid container>
-					<Grid item>
+					<Grid item xs={2} sm={1} container justify="center">
 						<IconButton>
 							<MenuIcon />
 						</IconButton>
+					</Grid>
+					<Grid item xs={8} sm={10} container justify="center">
+						<StyledTab className={classes.logo} label="Quang"></StyledTab>
 					</Grid>
 				</Grid>
 			</Hidden>
 			<Hidden smDown>
 				<Grid container spacing={16} justify="space-between">
-					<Grid item lg={4}>
+					<Grid item md={2} lg={2}>
 						<StyledTab className={classes.logo} label="Quang"></StyledTab>
 					</Grid>
-					<Grid item lg={8} >
-						<Grid container item justify="flex-end">
-							<Tabs centered>
-								<StyledTab label="Home"></StyledTab>
-								<StyledTab label="About Me"></StyledTab>
-								<StyledTab label="Portfolio"></StyledTab>
-								<StyledTab label="Contact"></StyledTab>
-							</Tabs>
-						</Grid>										
-					</Grid>
+					<Grid item md={10} lg={10} container justify="flex-end">
+						<Tabs centered value={false}>
+							<StyledTab label="About Me"></StyledTab>
+							<StyledTab label="Portfolio"></StyledTab>
+							<StyledTab label="Work"></StyledTab>
+							<StyledTab label="Contact"></StyledTab>
+						</Tabs>
+					</Grid>										
 				</Grid>
 			</Hidden>
 		</StyledAppBar>
 	)
 }
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(NavBar);

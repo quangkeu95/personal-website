@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import Header from "./components/Header";
+import HomePage from "./components/HomePage";
 import Main from "./components/Main";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <Header />
+        <HomePage />
         {/* <Main /> */}
       </MuiThemeProvider>
     );
