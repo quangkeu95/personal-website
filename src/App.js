@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import HomePage from "./components/HomePage";
 import Main from "./components/Main";
+import "./App.css";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
