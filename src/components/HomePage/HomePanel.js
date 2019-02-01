@@ -26,10 +26,15 @@ const styles = (theme) => ({
     backDropPanel: {
         minHeight: "calc(100vh - 7vh)",
         marginTop: "7vh",
+        // background: `linear-gradient(90deg, rgba(212,211,211,1) 0%, rgba(255,255,255,1) 50%), url(${backDropImg})`,
         backgroundImage: `url(${backDropImg})`,
         backgroundPosition: "top",
         backgroundSize: "cover",
-    }, 
+        backgroundRepeat: "no-repeat",
+    },
+    backDropTitle: {
+        
+    },
     title: {
         fontFamily: "\"Sanchez\", serif",
         textAlign: "center",
@@ -95,8 +100,22 @@ function HomePanel(props) {
                 </Card>
             </Hidden>
             <Hidden smDown>
-                <Grid className={classes.backDropPanel}>
-                    
+                <Grid className={classes.backDropPanel} container>
+                    <Grid item md={6} lg={6} container justify="flex-start" direction="column">
+                        {/* <Grid container item className={classes.backDropTitle} justify="center"> */}
+                            <CardContent>
+                                <Typography className={classes.title}>
+                                    Hi there, I'm Quang
+                                </Typography>
+                                <Typography inline={false} className={classes.subTitle}>
+                                    Software Developer 
+                                </Typography>
+                            </CardContent>
+                            <Button className={classes.hireMeBtn}>
+                                Get to know me
+                            </Button>
+                        {/* </Grid>                         */}
+                    </Grid>
                 </Grid>
             </Hidden>
         </Fragment>
