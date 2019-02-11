@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import styled from "styled-components";
 
 import { withStyles } from "@material-ui/core/styles";
 
@@ -12,6 +13,9 @@ import Typography from "@material-ui/core/Typography";
 
 import backDropImg from "./quang_sapa.jpg";
 
+import GridContainer from "../GridContainer";
+import GridItem from "../GridItem";
+
 const styles = theme => ({
 	media: {
 		backgroundPosition: "top",
@@ -22,7 +26,8 @@ const styles = theme => ({
 		height: "calc(100vh - 60px)"
 	},
 	backDropPanel: {
-		height: "calc(100vh - 60px)",
+		// height: "calc(100vh - 60px)",
+		height: "100vh",
 		// background: `linear-gradient(90deg, rgba(212,211,211,1) 0%, rgba(255,255,255,1) 50%), url(${backDropImg})`,
 		backgroundImage: `url(${backDropImg})`,
 		backgroundPosition: "top",
@@ -33,9 +38,10 @@ const styles = theme => ({
 		paddingTop: "10vh"
 	},
 	title: {
-		fontFamily: '"Sanchez", serif',
+		// fontFamily: '"Sanchez", serif',
+		color: "#fff",
 		textAlign: "center",
-		fontWeight: "550",
+		fontWeight: "700",
 		[theme.breakpoints.down("sm")]: {
 			fontSize: "1.6em"
 		},
@@ -84,6 +90,19 @@ const styles = theme => ({
 	}
 });
 
+const Wrapper = styled(GridContainer)`
+	&&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: #000;
+		opacity: 0.3;
+	}
+`;
+
 const HomePage = props => {
 	const { classes } = props;
 
@@ -91,27 +110,39 @@ const HomePage = props => {
 		<Fragment>
 			{/* For tablet and phone */}
 			<Hidden mdUp>
-				<Grid className={classes.homePanel}>
+				<Wrapper className={classes.backDropPanel}>
+					<GridItem>
+						<Typography className={classes.title}>
+							Hi there! I'm Quang.
+						</Typography>
+					</GridItem>
+				</Wrapper>
+				{/* <Grid className={classes.homePanel}>
 					<CardMedia className={classes.media} image={backDropImg} />
 					<Grid container item justify="center">
 						<CardContent>
 							<Typography className={classes.title}>
-								Hi there, I'm Quang
+								Hi there! I'm Quang.
 							</Typography>
-							<Typography inline={false} className={classes.subTitle}>
+							<Typography
+								inline={false}
+								className={classes.subTitle}
+							>
 								Software Developer
 							</Typography>
 						</CardContent>
 					</Grid>
 					<Grid container item justify="center">
-						<Button className={classes.hireMeBtn}>Get to know me</Button>
+						<Button className={classes.hireMeBtn}>
+							Get to know me
+						</Button>
 					</Grid>
-				</Grid>
+				</Grid> */}
 			</Hidden>
 
 			{/* For desktop  */}
 			<Hidden smDown>
-				<Grid className={classes.backDropPanel} container>
+				{/* <Grid className={classes.backDropPanel} container>
 					<Grid
 						item
 						md={6}
@@ -135,7 +166,10 @@ const HomePage = props => {
 							<Button className={classes.hireMeBtn}>Get to know me</Button>
 						</Grid>
 					</Grid>
-				</Grid>
+				</Grid> */}
+				<Wrapper className={classes.backDropPanel}>
+					<GridItem>abc</GridItem>
+				</Wrapper>
 			</Hidden>
 		</Fragment>
 	);

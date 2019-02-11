@@ -16,7 +16,7 @@ const theme = createMuiTheme({
 
 const Sections = styled.div`
 	&& {
-		margin-top: 60px;
+		/* margin-top: 60px; */
 		font-family: Open Sans, sans-serif;
 		font-size: 1em;
 	}

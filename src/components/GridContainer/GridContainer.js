@@ -9,14 +9,25 @@ const GridContainer = styled.div`
 	display: grid;
 	grid-template-columns: ${props => props.columns || "auto"};
 	grid-template-rows: ${props => props.rows || "auto"};
-	grid-template-areas: ${props => `${formatAreas(props.areas)}` || "auto"};
+	${({ areas }) => areas && `grid-template-areas: ${formatAreas(areas)}`};
+	grid-column-gap: ${props => props.columnGap || "0"};
+	grid-row-gap: ${props => props.rowGap || "0"};
+	${({ gap }) => gap && `grid-gap: ${gap}`};
+	${({ justifyContent }) =>
+		justifyContent && `justify-content: ${justifyContent}`};
+	${({ alignContent }) => alignContent && `align-content: ${alignContent}`};
 `;
 
 GridContainer.propTypes = {
 	display: PropTypes.string,
 	columns: PropTypes.string,
 	rows: PropTypes.string,
-	areas: PropTypes.arrayOf(PropTypes.string)
+	areas: PropTypes.arrayOf(PropTypes.string),
+	columnGap: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+	rowGap: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+	gap: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+	justifyContent: PropTypes.string,
+	alignContent: PropTypes.string
 };
 
 export default GridContainer;
