@@ -1,11 +1,9 @@
 import React, { Component, Fragment, useState, useEffect } from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Hidden from "@material-ui/core/Hidden";
-import Grid from "@material-ui/core/Grid";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
@@ -37,7 +35,11 @@ const styles = () => ({
 	},
 	tabItem: {
 		color: "#fff",
-		fontWeight: "400"
+		fontWeight: "700"
+	},
+	templateContainer: {
+		height: "inherit",
+		margin: "0 5vw"
 	}
 });
 
@@ -85,7 +87,7 @@ const StyledAppBar = styled(CustomAppBar)`
 		box-shadow: ${props =>
 			props.isOnTop === true
 				? "none"
-				: "0 8px 6px -6px rgba(0, 0, 0, 0.4)"};
+				: "0 8px 10px -8px rgba(0, 0, 0, 0.4)"};
 		height: 50px;
 	}
 `;
@@ -114,12 +116,13 @@ const NavBar = props => {
 	return (
 		<StyledAppBar position="fixed" isOnTop={isOnTop}>
 			<Hidden mdUp>
-				<GridContainer areas={[". content ."]} columns="5vw 1fr 5vw">
-					<GridItem area="content" justifySelf="strech">
+				<GridContainer className={classes.templateContainer}>
+					<GridItem alignSelf="center" justifySelf="stretch">
 						<GridContainer
 							columns="150px 100px"
 							areas={["logo menu"]}
 							justifyContent="space-between"
+							alignContent="center"
 						>
 							<GridItem justifySelf="start">
 								<LogoButton
@@ -181,45 +184,6 @@ const NavBar = props => {
 						</Tabs>
 					</GridItem>
 				</GridContainer>
-				{/* <Grid
-					container
-					alignItems="center"
-					justify="space-between"
-					className={classes.toolbar}
-				>
-					<Grid item md={2} lg={2} container alignItems="center">
-						<StyledTab className={classes.logo} label="Quang" />
-					</Grid>
-					<Grid
-						item
-						md={10}
-						lg={10}
-						container
-						justify="flex-end"
-						alignItems="center"
-					>
-						<Tabs
-							centered
-							value={tabIndex}
-							onChange={(event, value) => updateTabIndex(value)}
-							classes={{
-								indicator: classes.tabIndicator
-							}}
-						>
-							{["Home", "About me", "Portfolio", "Contact"].map(
-								(name, index) => {
-									return (
-										<StyledTab
-											label={name}
-											key={index}
-											component="a"
-										/>
-									);
-								}
-							)}
-						</Tabs>
-					</Grid>
-				</Grid> */}
 			</Hidden>
 		</StyledAppBar>
 	);
