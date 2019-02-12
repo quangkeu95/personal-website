@@ -23,9 +23,9 @@ GridContainer.propTypes = {
 	columns: PropTypes.string,
 	rows: PropTypes.string,
 	areas: PropTypes.arrayOf(PropTypes.string),
-	columnGap: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
-	rowGap: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
-	gap: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+	columnGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	rowGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	gap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	justifyContent: PropTypes.string,
 	alignContent: PropTypes.string
 };

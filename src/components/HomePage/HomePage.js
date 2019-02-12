@@ -2,12 +2,6 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 
 import { withStyles } from "@material-ui/core/styles";
-
-import Hidden from "@material-ui/core/Hidden";
-import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
@@ -17,25 +11,22 @@ import GridContainer from "../GridContainer";
 import GridItem from "../GridItem";
 
 const styles = theme => ({
-	media: {
-		backgroundPosition: "top",
-		minHeight: "65vh"
-	},
-	homePanel: {
-		paddingBottom: "15px",
-		height: "calc(100vh - 60px)"
-	},
 	backDropPanel: {
 		// height: "calc(100vh - 60px)",
 		height: "100vh",
-		// background: `linear-gradient(90deg, rgba(212,211,211,1) 0%, rgba(255,255,255,1) 50%), url(${backDropImg})`,
+		// background: `linear-gradient(90deg, <r></r>gba(212,211,211,1) 0%, rgba(255,255,255,1) 50%), url(${backDropImg})`,
 		backgroundImage: `url(${backDropImg})`,
 		backgroundPosition: "top",
 		backgroundSize: "cover",
-		backgroundRepeat: "no-repeat"
+		backgroundRepeat: "no-repeat",
+		backgroundAttachment: "fixed"
 	},
-	backDropTitle: {
-		paddingTop: "10vh"
+	backDrop: {
+		height: "100%",
+		width: "100%",
+		position: "absolute",
+		left: "0",
+		top: "0"
 	},
 	title: {
 		// fontFamily: '"Sanchez", serif',
@@ -53,7 +44,8 @@ const styles = theme => ({
 		}
 	},
 	subTitle: {
-		fontFamily: '"Sanchez", serif',
+		// fontFamily: '"Sanchez", serif',
+		color: "#fff",
 		textAlign: "center",
 		fontWeight: "400",
 		[theme.breakpoints.down("sm")]: {
@@ -99,7 +91,7 @@ const Wrapper = styled(GridContainer)`
 		width: 100%;
 		height: 100%;
 		background: #000;
-		opacity: 0.3;
+		opacity: 0.7;
 	}
 `;
 
@@ -108,69 +100,26 @@ const HomePage = props => {
 
 	return (
 		<Fragment>
-			{/* For tablet and phone */}
-			<Hidden mdUp>
-				<Wrapper className={classes.backDropPanel}>
-					<GridItem>
-						<Typography className={classes.title}>
-							Hi there! I'm Quang.
-						</Typography>
-					</GridItem>
-				</Wrapper>
-				{/* <Grid className={classes.homePanel}>
-					<CardMedia className={classes.media} image={backDropImg} />
-					<Grid container item justify="center">
-						<CardContent>
-							<Typography className={classes.title}>
-								Hi there! I'm Quang.
-							</Typography>
-							<Typography
-								inline={false}
-								className={classes.subTitle}
-							>
-								Software Developer
-							</Typography>
-						</CardContent>
-					</Grid>
-					<Grid container item justify="center">
-						<Button className={classes.hireMeBtn}>
-							Get to know me
-						</Button>
-					</Grid>
-				</Grid> */}
-			</Hidden>
-
-			{/* For desktop  */}
-			<Hidden smDown>
-				{/* <Grid className={classes.backDropPanel} container>
-					<Grid
-						item
-						md={6}
-						lg={6}
-						container
-						justify="flex-start"
-						direction="column"
-						className={classes.backDropTitle}
+			<Wrapper className={classes.backDropPanel} />
+			<GridContainer className={classes.backDrop} rows="70vh 30vh">
+				<GridItem>
+					<Typography className={classes.title} component="h1">
+						Hi there! I'm Quang.
+					</Typography>
+					<Typography
+						inline={false}
+						className={classes.subTitle}
+						component="h3"
 					>
-						<Grid container item justify="center">
-							<CardContent>
-								<Typography className={classes.title}>
-									Hi there, I'm Quang
-								</Typography>
-								<Typography className={classes.subTitle}>
-									Front-end Developer
-								</Typography>
-							</CardContent>
-						</Grid>
-						<Grid container item justify="center">
-							<Button className={classes.hireMeBtn}>Get to know me</Button>
-						</Grid>
-					</Grid>
-				</Grid> */}
-				<Wrapper className={classes.backDropPanel}>
-					<GridItem>abc</GridItem>
-				</Wrapper>
-			</Hidden>
+						Web Front-end Developer
+					</Typography>
+				</GridItem>
+				<GridItem>
+					<Button className={classes.hireMeBtn}>
+						Get to know me
+					</Button>
+				</GridItem>
+			</GridContainer>
 		</Fragment>
 	);
 };
