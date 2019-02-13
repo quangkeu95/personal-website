@@ -21,7 +21,7 @@ const Portfolio = props => {
 					<Typography>Resume</Typography>
 				</GridItem>
 				<GridItem area="content">
-					<GridContainer>a</GridContainer>
+					<GridContainer />
 				</GridItem>
 			</GridContainer>
 		</TemplateContainer>

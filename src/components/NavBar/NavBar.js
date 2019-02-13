@@ -22,6 +22,8 @@ import GridContainer from "../GridContainer";
 import GridItem from "../GridItem";
 import LogoButton from "./LogoButton";
 import MenuButton from "./MenuButton";
+import StyledTab from "./Tab";
+import StyledTabs from "./Tabs";
 
 const styles = () => ({
 	toolbar: {
@@ -32,10 +34,6 @@ const styles = () => ({
 		// background: "#E12D39" /* fallback for old browsers */
 		// background: "-webkit-linear-gradient(to right, #8a2387, #e94057, #f27121)", /* Chrome 10-25, Safari 5.1-6 */
 		// background: "linear-gradient(to right, #8a2387, #e94057, #f27121)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	},
-	tabItem: {
-		color: "#fff",
-		fontWeight: "700"
 	},
 	templateContainer: {
 		height: "inherit",
@@ -125,13 +123,7 @@ const NavBar = props => {
 							alignContent="center"
 						>
 							<GridItem justifySelf="start">
-								<LogoButton
-									component="a"
-									href="home"
-									isOnTop={isOnTop}
-								>
-									Quang
-								</LogoButton>
+								<LogoButton isOnTop={isOnTop} component="a" href="home">Quang</LogoButton>
 							</GridItem>
 							<GridItem justifySelf="end">
 								<MenuButton
@@ -156,32 +148,26 @@ const NavBar = props => {
 			<Hidden smDown>
 				<GridContainer columns="150px 1fr" areas={["logo menu"]}>
 					<GridItem>
-						<LogoButton component="a" href="home" isOnTop={isOnTop}>
-							Quang
-						</LogoButton>
+						<LogoButton isOnTop={isOnTop} component="a" href="home">Quang</LogoButton>
 					</GridItem>
 					<GridItem justifySelf="end">
-						<Tabs
-							centered
+						<StyledTabs
 							value={tabIndex}
 							onChange={(event, value) => updateTabIndex(value)}
-							classes={{
-								indicator: classes.tabIndicator
-							}}
+							isOnTop={isOnTop}
 						>
 							{["Home", "About me", "Resume", "Contact"].map(
 								(name, index) => {
 									return (
-										<Tab
+										<StyledTab
 											label={name}
 											key={index}
-											component="a"
-											className={classes.tabItem}
+											isOnTop={isOnTop}
 										/>
 									);
 								}
 							)}
-						</Tabs>
+						</StyledTabs>
 					</GridItem>
 				</GridContainer>
 			</Hidden>

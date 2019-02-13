@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 
 const CustomButton = props => {
 	return (
-		<Button className={props.className} onClick={props.onClick}>
+		<Button className={props.className} {...props}>
 			{props.children}
 		</Button>
 	);

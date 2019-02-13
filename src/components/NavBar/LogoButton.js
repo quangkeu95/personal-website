@@ -3,7 +3,11 @@ import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 
 const CustomButton = props => {
-	return <Button className={props.className}>{props.children}</Button>;
+	return (
+		<Button className={props.className} {...props}>
+			{props.children}
+		</Button>
+	);
 };
 
 const StyledButton = styled(CustomButton)`
