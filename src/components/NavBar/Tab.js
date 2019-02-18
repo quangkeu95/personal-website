@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import Tab from "@material-ui/core/Tab";
 
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = () => ({
+	root: {
+		color: "#ddd"
+	}
+});
+
 const CustomTab = props => {
-	return (
-		<Tab
-			className={props.className}
-			component="a"
-			label={props.label}
-			key={props.key}
-		>
-			{props.children}
-		</Tab>
-	);
+	const { isOnTop, ...rest } = props;
+	return <Tab {...rest}>{props.children}</Tab>;
 };
 
 const StyledTab = styled(CustomTab)`
@@ -23,4 +23,4 @@ const StyledTab = styled(CustomTab)`
 	}
 `;
 
-export default StyledTab;
+export default withStyles(styles)(StyledTab);

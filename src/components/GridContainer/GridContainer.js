@@ -16,6 +16,8 @@ const GridContainer = styled.div`
 	${({ justifyContent }) =>
 		justifyContent && `justify-content: ${justifyContent}`};
 	${({ alignContent }) => alignContent && `align-content: ${alignContent}`};
+	${({ justifyItems }) => justifyItems && `justify-items: ${justifyItems}`};
+	${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
 `;
 
 GridContainer.propTypes = {
@@ -27,7 +29,9 @@ GridContainer.propTypes = {
 	rowGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	gap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	justifyContent: PropTypes.string,
-	alignContent: PropTypes.string
+	alignContent: PropTypes.string,
+	justifyItems: PropTypes.string,
+	alignItems: PropTypes.string
 };
 
 export default GridContainer;

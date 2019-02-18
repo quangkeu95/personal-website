@@ -26,15 +26,6 @@ import StyledTab from "./Tab";
 import StyledTabs from "./Tabs";
 
 const styles = () => ({
-	toolbar: {
-		height: "100%"
-	},
-	tabIndicator: {
-		background: "#fff"
-		// background: "#E12D39" /* fallback for old browsers */
-		// background: "-webkit-linear-gradient(to right, #8a2387, #e94057, #f27121)", /* Chrome 10-25, Safari 5.1-6 */
-		// background: "linear-gradient(to right, #8a2387, #e94057, #f27121)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	},
 	templateContainer: {
 		height: "inherit",
 		margin: "0 5vw"
@@ -44,7 +35,7 @@ const styles = () => ({
 const NavList = props => {
 	return (
 		<List>
-			{["Home", "About me", "Resume", "Contact"].map((text, index) => (
+			{["Home", "About", "Resume", "Contact"].map((text, index) => (
 				<ListItem button component="a" key={index}>
 					{index === 0 && (
 						<ListItemIcon>
@@ -113,6 +104,7 @@ const NavBar = props => {
 
 	return (
 		<StyledAppBar position="fixed" isOnTop={isOnTop}>
+			{/* For mobile */}
 			<Hidden mdUp>
 				<GridContainer className={classes.templateContainer}>
 					<GridItem alignSelf="center" justifySelf="stretch">
@@ -123,7 +115,13 @@ const NavBar = props => {
 							alignContent="center"
 						>
 							<GridItem justifySelf="start">
-								<LogoButton isOnTop={isOnTop} component="a" href="home">Quang</LogoButton>
+								<LogoButton
+									isOnTop={isOnTop}
+									component="a"
+									href="home"
+								>
+									Quang
+								</LogoButton>
 							</GridItem>
 							<GridItem justifySelf="end">
 								<MenuButton
@@ -145,10 +143,13 @@ const NavBar = props => {
 					</GridItem>
 				</GridContainer>
 			</Hidden>
+			{/* For desktop */}
 			<Hidden smDown>
 				<GridContainer columns="150px 1fr" areas={["logo menu"]}>
 					<GridItem>
-						<LogoButton isOnTop={isOnTop} component="a" href="home">Quang</LogoButton>
+						<LogoButton isOnTop={isOnTop} component="a" href="home">
+							Quang
+						</LogoButton>
 					</GridItem>
 					<GridItem justifySelf="end">
 						<StyledTabs
@@ -156,12 +157,13 @@ const NavBar = props => {
 							onChange={(event, value) => updateTabIndex(value)}
 							isOnTop={isOnTop}
 						>
-							{["Home", "About me", "Resume", "Contact"].map(
+							{["Home", "About", "Resume", "Contact"].map(
 								(name, index) => {
 									return (
 										<StyledTab
 											label={name}
 											key={index}
+											component="a"
 											isOnTop={isOnTop}
 										/>
 									);

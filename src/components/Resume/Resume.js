@@ -64,6 +64,9 @@ const styles = theme => ({
 		[theme.breakpoints.up("sm")]: {
 			fontSize: "1em"
 		}
+	},
+	fullWidth: {
+		width: "100%"
 	}
 });
 
@@ -110,7 +113,12 @@ const Resume = props => {
 				</GridItem>
 				<GridItem area="content">
 					{/* Education */}
-					<GridContainer rows="auto 1fr" rowGap="20px">
+					<GridContainer
+						rows="auto 1fr"
+						rowGap="20px"
+						justifyItems="start"
+						style={{ marginBottom: "15px" }}
+					>
 						<GridItem justifySelf="start">
 							<Typography
 								component="h2"
@@ -119,13 +127,45 @@ const Resume = props => {
 								Education
 							</Typography>
 						</GridItem>
-						<GridItem>
-							<EducationList {...props} />
+						<GridItem justifySelf="start" style={{ width: "100%" }}>
+							<List
+								disablePadding={true}
+								className={classes.listEducation}
+							>
+								<ListItem
+									disableGutters={true}
+									className={classes.listItemPaper}
+								>
+									<Paper className={classes.paper}>
+										<Typography className={classes.heading}>
+											Bachelor's Degree (Very good Grade)
+										</Typography>
+										<Typography
+											className={classes.italicFontStyle}
+										>
+											Hanoi University of Science and
+											Technology (9/2013 - 9/2017)
+										</Typography>
+										<Typography
+											className={classes.paragraph}
+										>
+											My major was electronics and
+											communications engineering but i
+											found myself actually love working
+											in software field.
+										</Typography>
+									</Paper>
+								</ListItem>
+							</List>
 						</GridItem>
 					</GridContainer>
 
 					{/* Experience */}
-					<GridContainer rows="auto 1fr">
+					<GridContainer
+						rows="auto 1fr"
+						rowGap="20px"
+						style={{ marginBottom: "15px" }}
+					>
 						<GridItem justifySelf="start">
 							<Typography
 								component="h2"
@@ -134,7 +174,35 @@ const Resume = props => {
 								Experience
 							</Typography>
 						</GridItem>
-						<GridItem>{/* <EducationList /> */}</GridItem>
+						<GridItem justifySelf="start" style={{ width: "100%" }}>
+							<List
+								disablePadding={true}
+								className={classes.listEducation}
+							>
+								<ListItem
+									disableGutters={true}
+									className={classes.listItemPaper}
+								>
+									<Paper className={classes.paper}>
+										<Typography className={classes.heading}>
+											Software Developer
+										</Typography>
+										<Typography
+											className={classes.italicFontStyle}
+										>
+											VNPT Technology (10/2017 - 3/2019)
+										</Typography>
+										<Typography
+											className={classes.paragraph}
+										>
+											I worked in two projects: DevOps -
+											Test Automation and OLT Web
+											Management.
+										</Typography>
+									</Paper>
+								</ListItem>
+							</List>
+						</GridItem>
 					</GridContainer>
 				</GridItem>
 			</GridContainer>
