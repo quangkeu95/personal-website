@@ -111,7 +111,7 @@ const HomePage = props => {
 						className={classes.subTitle}
 						component="h3"
 					>
-						Web Front-end Developer
+						Front-end Developer
 					</Typography>
 				</GridItem>
 				<GridItem>

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import About from "./components/About";
-import Portfolio from "./components/Portfolio";
+import Resume from "./components/Resume";
 import "./App.css";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import styled from "styled-components";
@@ -36,7 +36,7 @@ class App extends Component {
 				<Sections>
 					<HomePage id="home" />
 					<About />
-					<Portfolio />
+					<Resume />
 				</Sections>
 			</MuiThemeProvider>
 		);

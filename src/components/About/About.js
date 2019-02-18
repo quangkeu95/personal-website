@@ -77,9 +77,9 @@ const DescriptionContainer = props => {
 				className={classes.paragraph}
 			>
 				I've had 1+ years experience as a developer and primarily
-				working on web development. I like mobile-first reponsive
-				design, single page applications and always focus on using
-				well-structured, clear and maintainable coding style.
+				working on web development. I like mobile-first reponsive design
+				and always focus on using well-structured, clear and
+				maintainable coding style.
 			</Typography>
 			<Typography
 				className={classes.title}
