@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Paper from "@material-ui/core/Paper";
+import Chip from "@material-ui/core/Chip";
 
 import GridContainer from "../GridContainer";
 import GridItem from "../GridItem";
@@ -14,6 +15,7 @@ import TemplateContainer from "../TemplateContainer";
 import ResumeBlock from "./Block";
 import ListPaper from "./ListPaper";
 import SkillBar from "./SkillBar";
+import ReactIcon from "./ReactLogoIcon";
 
 const styles = theme => ({
 	heading: {
@@ -128,7 +130,9 @@ const Resume = props => {
 					<ResumeBlock title="Skills">
 						<Paper className={classes.paper}>
 							<GridContainer>
-								<SkillBar title="HTML" percentage="50" />
+								<Chip label="html5" />
+
+								<ReactIcon />
 							</GridContainer>
 						</Paper>
 					</ResumeBlock>
