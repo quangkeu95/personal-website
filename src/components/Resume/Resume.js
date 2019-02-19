@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { withStyles } from "@material-ui/core";
 
 import styled from "styled-components";
@@ -11,6 +11,9 @@ import Paper from "@material-ui/core/Paper";
 import GridContainer from "../GridContainer";
 import GridItem from "../GridItem";
 import TemplateContainer from "../TemplateContainer";
+import ResumeBlock from "./Block";
+import ListPaper from "./ListPaper";
+import SkillBar from "./SkillBar";
 
 const styles = theme => ({
 	heading: {
@@ -33,30 +36,6 @@ const styles = theme => ({
 			bottom: "-4px"
 		}
 	},
-	paper: {
-		width: "100%",
-		padding: "10px 20px",
-		boxShadow: "0px 1px 3px 0px rgba(0,0,0,0.4)"
-	},
-	listItemPaper: {
-		padding: 0,
-		marginBottom: "15px",
-		"&:after": {
-			content: '""',
-			position: "absolute",
-			boxShadow: "0 0 0 4px #000000",
-			left: "-7px",
-			top: "20px",
-			backgroundColor: "#fff",
-			borderRadius: "50%",
-			height: "11px",
-			width: "11px"
-		}
-	},
-	listEducation: {
-		padding: "0",
-		borderLeft: "3px solid #000"
-	},
 	paragraph: {
 		[theme.breakpoints.down("sm")]: {
 			fontSize: "0.9em"
@@ -67,37 +46,60 @@ const styles = theme => ({
 	},
 	fullWidth: {
 		width: "100%"
+	},
+	paper: {
+		width: "100%",
+		padding: "10px 20px",
+		boxShadow: "0px 1px 3px 0px rgba(0,0,0,0.4)"
 	}
 });
 
-const Wrapper = styled(GridContainer)``;
-
-const EducationList = props => {
+const EducationPanel = props => {
 	const { classes } = props;
 
 	return (
-		<List disablePadding={true} className={classes.listEducation}>
-			<ListItem disableGutters={true} className={classes.listItemPaper}>
-				<Paper className={classes.paper}>
-					<Typography className={classes.heading}>
-						Bachelor's Degree (Very good Grade)
-					</Typography>
-					<Typography className={classes.italicFontStyle}>
-						Hanoi University of Science and Technology (2013 - 2017)
-					</Typography>
-					<Typography className={classes.paragraph}>
-						My major was electronics and communications engineering
-						but i found myself actually love working in software
-						field.
-					</Typography>
-				</Paper>
-			</ListItem>
-		</List>
+		<Fragment>
+			<Typography className={classes.heading}>
+				Bachelor's Degree (Very good Grade)
+			</Typography>
+			<Typography className={classes.italicFontStyle}>
+				Hanoi University of Science and Technology (9/2013 - 9/2017)
+			</Typography>
+			<Typography className={classes.paragraph}>
+				My major was electronics and telecommunications engineering but
+				i found myself actually love working in software field.
+			</Typography>
+		</Fragment>
+	);
+};
+
+const ExperiencePanel = props => {
+	const { classes } = props;
+
+	return (
+		<Fragment>
+			<Typography className={classes.heading}>
+				Software Developer
+			</Typography>
+			<Typography className={classes.italicFontStyle}>
+				VNPT Technology (10/2017 - 3/2019)
+			</Typography>
+			<Typography className={classes.paragraph}>
+				I have experiences working with CI/CD tools such as Jenkins,
+				Docker, Kubernetes, also i'm familiar with Linux system and
+				command line. Most of the time working in VNPT Technology, my
+				role is software developer, i worked in team to make management
+				web with Javascript, JQuery, AngularJS and Bootstrap.
+			</Typography>
+		</Fragment>
 	);
 };
 
 const Resume = props => {
 	const { classes } = props;
+
+	const educationArray = [<EducationPanel {...props} />];
+	const experienceArray = [<ExperiencePanel {...props} />];
 
 	return (
 		<TemplateContainer>
@@ -113,97 +115,23 @@ const Resume = props => {
 				</GridItem>
 				<GridItem area="content">
 					{/* Education */}
-					<GridContainer
-						rows="auto 1fr"
-						rowGap="20px"
-						justifyItems="start"
-						style={{ marginBottom: "15px" }}
-					>
-						<GridItem justifySelf="start">
-							<Typography
-								component="h2"
-								className={classes.subheading}
-							>
-								Education
-							</Typography>
-						</GridItem>
-						<GridItem justifySelf="start" style={{ width: "100%" }}>
-							<List
-								disablePadding={true}
-								className={classes.listEducation}
-							>
-								<ListItem
-									disableGutters={true}
-									className={classes.listItemPaper}
-								>
-									<Paper className={classes.paper}>
-										<Typography className={classes.heading}>
-											Bachelor's Degree (Very good Grade)
-										</Typography>
-										<Typography
-											className={classes.italicFontStyle}
-										>
-											Hanoi University of Science and
-											Technology (9/2013 - 9/2017)
-										</Typography>
-										<Typography
-											className={classes.paragraph}
-										>
-											My major was electronics and
-											communications engineering but i
-											found myself actually love working
-											in software field.
-										</Typography>
-									</Paper>
-								</ListItem>
-							</List>
-						</GridItem>
-					</GridContainer>
+					<ResumeBlock title="Education">
+						<ListPaper listItems={educationArray} />
+					</ResumeBlock>
 
 					{/* Experience */}
-					<GridContainer
-						rows="auto 1fr"
-						rowGap="20px"
-						style={{ marginBottom: "15px" }}
-					>
-						<GridItem justifySelf="start">
-							<Typography
-								component="h2"
-								className={classes.subheading}
-							>
-								Experience
-							</Typography>
-						</GridItem>
-						<GridItem justifySelf="start" style={{ width: "100%" }}>
-							<List
-								disablePadding={true}
-								className={classes.listEducation}
-							>
-								<ListItem
-									disableGutters={true}
-									className={classes.listItemPaper}
-								>
-									<Paper className={classes.paper}>
-										<Typography className={classes.heading}>
-											Software Developer
-										</Typography>
-										<Typography
-											className={classes.italicFontStyle}
-										>
-											VNPT Technology (10/2017 - 3/2019)
-										</Typography>
-										<Typography
-											className={classes.paragraph}
-										>
-											I worked in two projects: DevOps -
-											Test Automation and OLT Web
-											Management.
-										</Typography>
-									</Paper>
-								</ListItem>
-							</List>
-						</GridItem>
-					</GridContainer>
+					<ResumeBlock title="Experience">
+						<ListPaper listItems={experienceArray} />
+					</ResumeBlock>
+
+					{/* Skills */}
+					<ResumeBlock title="Skills">
+						<Paper className={classes.paper}>
+							<GridContainer>
+								<SkillBar title="HTML" percentage="50" />
+							</GridContainer>
+						</Paper>
+					</ResumeBlock>
 				</GridItem>
 			</GridContainer>
 		</TemplateContainer>
