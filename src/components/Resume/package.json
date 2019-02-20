@@ -1,3 +1,4 @@
 {
-    "main": "Resume.js"
+    "main": "Resume.js",
+    "dependencies": {}
 }
