@@ -1,31 +1,15 @@
 import React, { Fragment } from "react";
 import { withStyles } from "@material-ui/core";
 
-import styled from "styled-components";
-
 import Typography from "@material-ui/core/Typography";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import Paper from "@material-ui/core/Paper";
-import Chip from "@material-ui/core/Chip";
 
 import GridContainer from "../GridContainer";
 import GridItem from "../GridItem";
 import TemplateContainer from "../TemplateContainer";
 import ResumeBlock from "./Block";
 import ListPaper from "./ListPaper";
-import SkillIcon from "./SkillIcon";
-
-// import SvgReactLogo from "./SvgReactLogo";
-// import SvgBootstrapLogo from "./SvgBootstrapLogo";
-// import SvgHtmlLogo from "./SvgHtmlLogo";
-import { ReactComponent as SvgReactLogo } from "./react-logo.svg";
-import { ReactComponent as SvgBootstrapLogo } from "./bootstrap-logo.svg";
-import { ReactComponent as SvgHtmlLogo } from "./html-logo.svg";
-import { ReactComponent as SvgCssLogo } from "./css-logo.svg";
-import { ReactComponent as SvgJavascriptLogo } from "./javascript-logo.svg";
-import { ReactComponent as SvgDockerLogo } from "./docker-logo.svg";
-import { ReactComponent as SvgJqueryLogo } from "./jquery-logo.svg";
+import LogoPanel from "./LogoPanel";
 
 const styles = theme => ({
 	heading: {
@@ -71,11 +55,6 @@ const styles = theme => ({
 		"& > span": {
 			paddingLeft: "0"
 		}
-	},
-	skillLogo: {
-		width: "64px",
-		height: "64px",
-		margin: 0
 	}
 });
 
@@ -152,64 +131,7 @@ const Resume = props => {
 					{/* Skills */}
 					<ResumeBlock title="Skills">
 						<Paper className={classes.paper}>
-							<GridContainer rowGap="8px">
-								<SkillIcon
-									label="React/Redux"
-									icon={
-										<SvgReactLogo
-											className={classes.skillLogo}
-										/>
-									}
-								/>
-								<SkillIcon
-									label="Bootstrap"
-									icon={
-										<SvgBootstrapLogo
-											className={classes.skillLogo}
-										/>
-									}
-								/>
-								<SkillIcon
-									label="HTML"
-									icon={
-										<SvgHtmlLogo
-											className={classes.skillLogo}
-										/>
-									}
-								/>
-								<SkillIcon
-									label="CSS"
-									icon={
-										<SvgCssLogo
-											className={classes.skillLogo}
-										/>
-									}
-								/>
-								<SkillIcon
-									label="Javascript"
-									icon={
-										<SvgJavascriptLogo
-											className={classes.skillLogo}
-										/>
-									}
-								/>
-								<SkillIcon
-									label="JQuery"
-									icon={
-										<SvgJqueryLogo
-											className={classes.skillLogo}
-										/>
-									}
-								/>
-								<SkillIcon
-									label="Docker"
-									icon={
-										<SvgDockerLogo
-											className={classes.skillLogo}
-										/>
-									}
-								/>
-							</GridContainer>
+							<LogoPanel />
 						</Paper>
 					</ResumeBlock>
 				</GridItem>

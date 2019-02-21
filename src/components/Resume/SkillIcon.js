@@ -13,10 +13,10 @@ const styles = () => ({
 });
 
 const SkillIcon = props => {
-	const { label, icon, classes } = props;
+	const { label, icon, classes, ...rest } = props;
 
 	return (
-		<GridContainer columns="1fr 1fr">
+		<GridContainer columns="1fr 1fr" {...rest}>
 			<GridItem>{icon}</GridItem>
 			<GridItem justifySelf="start" className={classes.label}>
 				{label}

@@ -95,7 +95,7 @@ const NavBar = props => {
 		}
 	};
 
-	useState(() => {
+	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
