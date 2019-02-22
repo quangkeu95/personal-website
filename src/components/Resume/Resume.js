@@ -45,7 +45,7 @@ const styles = theme => ({
 	},
 	paper: {
 		width: "100%",
-		padding: "10px 20px",
+		padding: "10px 10px",
 		boxShadow: "0px 1px 3px 0px rgba(0,0,0,0.4)"
 	},
 	chip: {

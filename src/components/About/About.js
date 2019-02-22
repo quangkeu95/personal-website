@@ -16,13 +16,14 @@ const styles = theme => ({
 		textTransform: "capitalize",
 		fontWeight: "700",
 		color: "hsl(0, 0%, 13%)",
+		fontSize: "1em"
 		// borderBottom: "2px solid red",
-		[theme.breakpoints.down("sm")]: {
-			fontSize: "0.9em"
-		},
-		[theme.breakpoints.up("sm")]: {
-			fontSize: "1em"
-		}
+		// [theme.breakpoints.down("sm")]: {
+		// 	fontSize: "0.9em"
+		// },
+		// [theme.breakpoints.up("sm")]: {
+		// 	fontSize: "1em"
+		// }
 	},
 	paragraph: {
 		[theme.breakpoints.down("sm")]: {

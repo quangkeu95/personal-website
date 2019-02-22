@@ -96,7 +96,12 @@ const Wrapper = styled(GridContainer)`
 `;
 
 const HomePage = props => {
-	const { classes } = props;
+	const { classes, aboutRef } = props;
+
+	const handleScrollToAbout = () => {
+		console.log(aboutRef);
+		window.scroll(0, aboutRef.current.offsetTop);
+	};
 
 	return (
 		<Fragment>
@@ -115,7 +120,10 @@ const HomePage = props => {
 					</Typography>
 				</GridItem>
 				<GridItem>
-					<Button className={classes.hireMeBtn}>
+					<Button
+						className={classes.hireMeBtn}
+						onClick={handleScrollToAbout}
+					>
 						Get to know me
 					</Button>
 				</GridItem>

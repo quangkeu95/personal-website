@@ -17,7 +17,7 @@ const SkillIcon = props => {
 
 	return (
 		<GridContainer columns="1fr 1fr" {...rest}>
-			<GridItem>{icon}</GridItem>
+			<GridItem justifySelf="end">{icon}</GridItem>
 			<GridItem justifySelf="start" className={classes.label}>
 				{label}
 			</GridItem>

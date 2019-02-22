@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const TemplateContainer = props => {
-	return <Wrapper>{props.children}</Wrapper>;
+	return <Wrapper {...props}>{props.children}</Wrapper>;
 };
 
 export default TemplateContainer;
