@@ -25,6 +25,9 @@ const styles = theme => ({
 		// 	fontSize: "1em"
 		// }
 	},
+	heading: {
+		fontWeight: "700"
+	},
 	paragraph: {
 		[theme.breakpoints.down("sm")]: {
 			fontSize: "0.9em"
@@ -77,10 +80,10 @@ const DescriptionContainer = props => {
 				paragraph={true}
 				className={classes.paragraph}
 			>
-				I've had 1+ years experience as a developer and primarily
-				working on web development. I like mobile-first reponsive design
-				and always focus on using well-structured, clear and
-				maintainable coding style.
+				I've had 1+ years experience as a software developer and
+				primarily working on web development. I like mobile-first
+				reponsive design and always focus on using well-structured,
+				clear and maintainable coding style.
 			</Typography>
 			<Typography
 				className={classes.title}
@@ -106,35 +109,59 @@ const About = props => {
 
 	return (
 		<TemplateContainer>
-			<Hidden mdUp>
-				<GridContainer
-					rows=" 200px 1fr"
-					areas={["avatar", "description"]}
-					rowGap="20px"
-				>
-					<GridItem area="avatar">
-						<Avatar src={avatar} className={classes.bigAvatar} />
+			<GridContainer
+				rows="auto 1fr"
+				areas={["title", "content"]}
+				rowGap="30px"
+			>
+				<GridItem area="title">
+					<Typography component="h1" className={classes.heading}>
+						About me
+					</Typography>
+				</GridItem>
+				<GridItem>
+					<GridItem area="content">
+						<Hidden mdUp>
+							<GridContainer
+								rows=" 200px 1fr"
+								areas={["avatar", "description"]}
+								rowGap="20px"
+							>
+								<GridItem area="avatar">
+									<Avatar
+										src={avatar}
+										className={classes.bigAvatar}
+									/>
+								</GridItem>
+								<GridItem area="description">
+									<DescriptionContainer classes={classes} />
+								</GridItem>
+							</GridContainer>
+						</Hidden>
+						<Hidden smDown>
+							<GridContainer
+								columns="20vw 1fr"
+								areas={["avatar description"]}
+								columnGap="20px"
+								className={classes.fullHeight}
+							>
+								<GridItem area="avatar">
+									<Avatar
+										src={avatar}
+										className={classes.bigAvatar}
+									/>
+								</GridItem>
+								<GridItem
+									area="description"
+									justifySelf="stretch"
+								>
+									<DescriptionContainer classes={classes} />
+								</GridItem>
+							</GridContainer>
+						</Hidden>
 					</GridItem>
-					<GridItem area="description">
-						<DescriptionContainer classes={classes} />
-					</GridItem>
-				</GridContainer>
-			</Hidden>
-			<Hidden smDown>
-				<GridContainer
-					columns="20vw 1fr"
-					areas={["avatar description"]}
-					columnGap="20px"
-					className={classes.fullHeight}
-				>
-					<GridItem area="avatar">
-						<Avatar src={avatar} className={classes.bigAvatar} />
-					</GridItem>
-					<GridItem area="description" justifySelf="stretch">
-						<DescriptionContainer classes={classes} />
-					</GridItem>
-				</GridContainer>
-			</Hidden>
+				</GridItem>
+			</GridContainer>
 		</TemplateContainer>
 	);
 };

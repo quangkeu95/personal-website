@@ -144,7 +144,7 @@ const NavBar = props => {
 								<LogoButton
 									isOnTop={isOnTop}
 									component="a"
-									href="home"
+									href="/"
 								>
 									Quang
 								</LogoButton>
@@ -176,7 +176,7 @@ const NavBar = props => {
 			<Hidden smDown>
 				<GridContainer columns="150px 1fr" areas={["logo menu"]}>
 					<GridItem>
-						<LogoButton isOnTop={isOnTop} component="a" href="home">
+						<LogoButton isOnTop={isOnTop} component="a" href="/">
 							Quang
 						</LogoButton>
 					</GridItem>
