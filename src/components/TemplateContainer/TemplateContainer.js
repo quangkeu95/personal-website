@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 		height: 100%;
 		color: hsl(0, 0%, 29%);
 		/* letter-spacing: 0.05em; */
-		margin: 50px 15vw 0;
+		padding: 50px 15vw 0;
 		line-height: 1.5em;
 	}
 `;

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import styled from "styled-components";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -9,6 +9,8 @@ import backDropImg from "./quang_sapa.jpg";
 
 import GridContainer from "../GridContainer";
 import GridItem from "../GridItem";
+
+import { TabIndexContext } from "../../context/TabIndexContext";
 
 const styles = theme => ({
 	backDropPanel: {
@@ -97,10 +99,14 @@ const Wrapper = styled(GridContainer)`
 
 const HomePage = props => {
 	const { classes, aboutRef } = props;
+	const { changeTabIndex } = useContext(TabIndexContext);
 
 	const handleScrollToAbout = () => {
-		console.log(aboutRef);
-		window.scroll(0, aboutRef.current.offsetTop);
+		changeTabIndex(1); // Change to About tab
+		aboutRef.current.scrollIntoView({
+			behavior: "smooth",
+			block: "start"
+		});
 	};
 
 	return (

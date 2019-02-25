@@ -1,4 +1,10 @@
-import React, { Component, Fragment, useState, useEffect } from "react";
+import React, {
+	Component,
+	Fragment,
+	useState,
+	useEffect,
+	useContext
+} from "react";
 import styled from "styled-components";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -25,6 +31,8 @@ import MenuButton from "./MenuButton";
 import StyledTab from "./Tab";
 import StyledTabs from "./Tabs";
 
+import { TabIndexContext } from "../../context/TabIndexContext";
+
 const styles = () => ({
 	templateContainer: {
 		height: "inherit",
@@ -33,10 +41,18 @@ const styles = () => ({
 });
 
 const NavList = props => {
+	const { tabIndex, changeTabIndex } = props;
+
 	return (
 		<List>
 			{["Home", "About", "Resume", "Contact"].map((text, index) => (
-				<ListItem button component="a" key={index}>
+				<ListItem
+					button
+					component="a"
+					key={index}
+					selected={index === tabIndex}
+					onClick={() => changeTabIndex(index)}
+				>
 					{index === 0 && (
 						<ListItemIcon>
 							<HomeIcon />
@@ -82,8 +98,9 @@ const StyledAppBar = styled(CustomAppBar)`
 `;
 
 const NavBar = props => {
-	const { classes } = props;
-	const [tabIndex, updateTabIndex] = useState(0);
+	const { classes, homeRef, aboutRef, resumeRef, contactRef } = props;
+	const { tabIndex, changeTabIndex } = useContext(TabIndexContext);
+	// const [tabIndex, updateTabIndex] = useState(0);
 	const [isOpenDrawer, updateOpenDrawer] = useState(false);
 	const [isOnTop, updateIsOnTop] = useState(true);
 
@@ -101,6 +118,15 @@ const NavBar = props => {
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, [window.scrollY]);
+
+	useEffect(() => {
+		const tabRef = [homeRef, aboutRef, resumeRef, contactRef];
+
+		tabRef[tabIndex].current.scrollIntoView({
+			behavior: "smooth",
+			block: "start"
+		});
+	}, [tabIndex]);
 
 	return (
 		<StyledAppBar position="fixed" isOnTop={isOnTop}>
@@ -136,7 +162,10 @@ const NavBar = props => {
 									onOpen={() => updateOpenDrawer(true)}
 									onClose={() => updateOpenDrawer(false)}
 								>
-									<NavList />
+									<NavList
+										tabIndex={tabIndex}
+										changeTabIndex={changeTabIndex}
+									/>
 								</SwipeableDrawer>
 							</GridItem>
 						</GridContainer>
@@ -154,7 +183,7 @@ const NavBar = props => {
 					<GridItem justifySelf="end">
 						<StyledTabs
 							value={tabIndex}
-							onChange={(event, value) => updateTabIndex(value)}
+							onChange={(event, value) => changeTabIndex(value)}
 							isOnTop={isOnTop}
 						>
 							{["Home", "About", "Resume", "Contact"].map(

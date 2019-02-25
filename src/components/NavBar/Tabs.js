@@ -12,7 +12,7 @@ const styles = () => ({
 		"& > div": {
 			maxWidth: "50px",
 			width: "80%",
-			backgroundColor: "#fff"
+			backgroundColor: "#E94057"
 		}
 	}
 });

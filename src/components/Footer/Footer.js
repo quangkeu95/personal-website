@@ -32,7 +32,7 @@ const Footer = props => {
 	return (
 		<TemplateContainer>
 			<Typography className={classes.footer}>
-				Made with <Emoji symbol="🙌" label="raising hand" />
+				Made with <Emoji symbol="🙌" label="raising hand" /> and <Emoji symbol="❤️" label="red heart"/>
 			</Typography>
 		</TemplateContainer>
 	);
