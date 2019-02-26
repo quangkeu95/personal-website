@@ -16,7 +16,7 @@ import { TabIndexContext } from "./context/TabIndexContext";
 const theme = createMuiTheme({
 	typography: {
 		useNextVariants: true,
-		fontFamily: '"Open Sans", sans-serif;',
+		fontFamily: '"Poppins", sans-serif;',
 		fontSize: "1em"
 	}
 });
@@ -24,7 +24,7 @@ const theme = createMuiTheme({
 const Sections = styled.div`
 	&& {
 		/* margin-top: 60px; */
-		font-family: Open Sans, sans-serif;
+		font-family: Poppins, sans-serif;
 		font-size: 1em;
 	}
 `;

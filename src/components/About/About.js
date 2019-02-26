@@ -17,24 +17,9 @@ const styles = theme => ({
 		fontWeight: "700",
 		color: "hsl(0, 0%, 13%)",
 		fontSize: "1em"
-		// borderBottom: "2px solid red",
-		// [theme.breakpoints.down("sm")]: {
-		// 	fontSize: "0.9em"
-		// },
-		// [theme.breakpoints.up("sm")]: {
-		// 	fontSize: "1em"
-		// }
 	},
 	heading: {
 		fontWeight: "700"
-	},
-	paragraph: {
-		[theme.breakpoints.down("sm")]: {
-			fontSize: "0.9em"
-		},
-		[theme.breakpoints.up("sm")]: {
-			fontSize: "1em"
-		}
 	},
 	bigAvatar: {
 		width: "200px",
@@ -57,11 +42,7 @@ const DescriptionContainer = props => {
 			>
 				Who i am
 			</Typography>
-			<Typography
-				align="left"
-				paragraph={true}
-				className={classes.paragraph}
-			>
+			<Typography align="left" paragraph={true}>
 				Hello, my name is Nguyen Le Quang, i live in Hanoi, Vietnam. I'm
 				a front-end developer who is passionate about building user
 				interface websites, bringing great user experiences, constantly
@@ -75,11 +56,7 @@ const DescriptionContainer = props => {
 			>
 				What i do
 			</Typography>
-			<Typography
-				align="left"
-				paragraph={true}
-				className={classes.paragraph}
-			>
+			<Typography align="left" paragraph={true}>
 				I've had 1+ years experience as a software developer and
 				primarily working on web development. I like mobile-first
 				reponsive design and always focus on using well-structured,
@@ -92,11 +69,7 @@ const DescriptionContainer = props => {
 			>
 				My Interests
 			</Typography>
-			<Typography
-				align="left"
-				paragraph={true}
-				className={classes.paragraph}
-			>
+			<Typography align="left" paragraph={true}>
 				Outside of coding, i have a number of other interests as well. I
 				love traveling and sport, especially football.
 			</Typography>
