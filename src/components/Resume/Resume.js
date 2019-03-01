@@ -81,7 +81,7 @@ const Resume = props => {
 	const { classes } = props;
 
 	const handleDownloadResume = () => {
-		console.log("download");
+		window.open("test.pdf");
 	};
 
 	return (
