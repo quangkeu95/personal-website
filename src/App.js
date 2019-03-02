@@ -16,7 +16,7 @@ import { TabIndexContext } from "./context/TabIndexContext";
 const theme = createMuiTheme({
 	typography: {
 		useNextVariants: true,
-		fontFamily: '"Poppins", sans-serif;',
+		fontFamily: '"Poppins", "Helvetica", sans-serif;',
 		fontSize: "1em"
 	}
 });
@@ -24,8 +24,8 @@ const theme = createMuiTheme({
 const Sections = styled.div`
 	&& {
 		/* margin-top: 60px; */
-		font-family: Poppins, sans-serif;
-		font-size: 1em;
+		/* font-family: Poppins, Hel sans-serif; */
+		/* font-size: 1em; */
 	}
 `;
 
@@ -65,21 +65,22 @@ class App extends Component {
 						resumeRef={this.resumeRef}
 						contactRef={this.contactRef}
 					/>
-					<Sections>
-						<RootRef rootRef={this.homeRef}>
-							<HomePage aboutRef={this.aboutRef} />
-						</RootRef>
-						<RootRef rootRef={this.aboutRef}>
-							<About />
-						</RootRef>
-						<RootRef rootRef={this.resumeRef}>
-							<Resume />
-						</RootRef>
-						<RootRef rootRef={this.contactRef}>
-							<Contact />
-						</RootRef>
-						<Footer />
-					</Sections>
+					{/* <Sections> */}
+
+					<RootRef rootRef={this.homeRef}>
+						<HomePage aboutRef={this.aboutRef} />
+					</RootRef>
+					<RootRef rootRef={this.aboutRef}>
+						<About />
+					</RootRef>
+					<RootRef rootRef={this.resumeRef}>
+						<Resume />
+					</RootRef>
+					<RootRef rootRef={this.contactRef}>
+						<Contact />
+					</RootRef>
+					<Footer />
+					{/* </Sections> */}
 				</TabIndexContext.Provider>
 			</MuiThemeProvider>
 		);

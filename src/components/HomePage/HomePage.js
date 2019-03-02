@@ -9,8 +9,6 @@ import GridContainer from "../GridContainer";
 import GridItem from "../GridItem";
 
 import { TabIndexContext } from "../../context/TabIndexContext";
-import { useSpring, animated } from "react-spring";
-import { Spring } from "react-spring/renderprops";
 
 import { styles } from "./HomePage.style";
 
@@ -33,10 +31,18 @@ const HomePage = props => {
 
 	const handleScrollToAbout = () => {
 		changeTabIndex(1); // Change to About tab
-		aboutRef.current.scrollIntoView({
-			behavior: "smooth",
-			block: "start"
-		});
+		// aboutRef.current.scrollIntoView({
+		// 	behavior: "smooth",
+		// 	block: "start"
+		// });
+
+		window.scrollTo(0, aboutRef.current.offsetTop);
+
+		// scroller.scrollTo(aboutRef.current.offsetTop, {
+		// 	smooth: true,
+		// 	delay: 0,
+		// 	duration: 1000
+		// });
 	};
 
 	return (

@@ -19,7 +19,7 @@ const SkillIcon = props => {
 		<GridContainer columns="1fr 1fr" {...rest}>
 			<GridItem justifySelf="end">{icon}</GridItem>
 			<GridItem justifySelf="start" className={classes.label}>
-				{label}
+				<Typography>{label}</Typography>
 			</GridItem>
 		</GridContainer>
 	);

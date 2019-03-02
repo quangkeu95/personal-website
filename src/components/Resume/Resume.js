@@ -81,7 +81,7 @@ const Resume = props => {
 	const { classes } = props;
 
 	const handleDownloadResume = () => {
-		window.open("test.pdf");
+		window.open("quangkeu95-resume.pdf");
 	};
 
 	return (

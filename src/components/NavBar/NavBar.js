@@ -122,10 +122,11 @@ const NavBar = props => {
 	useEffect(() => {
 		const tabRef = [homeRef, aboutRef, resumeRef, contactRef];
 
-		tabRef[tabIndex].current.scrollIntoView({
-			behavior: "smooth",
-			block: "start"
-		});
+		// tabRef[tabIndex].current.scrollIntoView({
+		// 	behavior: "smooth",
+		// 	block: "start"
+		// });
+		window.scrollTo(0, tabRef[tabIndex].current.offsetTop);
 	}, [tabIndex]);
 
 	return (

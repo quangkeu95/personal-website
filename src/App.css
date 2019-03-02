@@ -1,12 +1,19 @@
-
-html, body {
-  margin: 0;
-  paddding: 0;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
+html,
+body {
+	margin: 0;
+	paddding: 0;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
+@font-face {
+	font-family: "Poppins";
+	url: ("https://fonts.googleapis.com/css?family=Poppins:300");
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
 }
