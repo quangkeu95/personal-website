@@ -5,14 +5,12 @@ import TemplateContainer from "../TemplateContainer";
 import GridContainer from "../GridContainer";
 import GridItem from "../GridItem";
 import LogoPanel from "./LogoPanel";
+import SectionTitle from "../common/SectionTitle";
 
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 const styles = () => ({
-	heading: {
-		fontWeight: "700"
-	},
 	title: {},
 	logoPanel: {
 		minWidth: "200px",
@@ -37,9 +35,7 @@ const Contact = props => {
 				rowGap="30px"
 			>
 				<GridItem>
-					<Typography component="h1" className={classes.heading}>
-						Get in touch
-					</Typography>
+					<SectionTitle>Get in touch</SectionTitle>
 				</GridItem>
 				<MediaQuery maxWidth={900}>
 					{matches => {

@@ -11,11 +11,9 @@ import TemplateContainer from "../TemplateContainer";
 import ResumeBlock from "./Block";
 import ListPaper from "./ListPaper";
 import LogoPanel from "./LogoPanel";
+import SectionTitle from "../common/SectionTitle";
 
 const styles = theme => ({
-	heading: {
-		fontWeight: "700"
-	},
 	subheading: {
 		fontWeight: "700",
 		position: "relative",
@@ -92,9 +90,7 @@ const Resume = props => {
 				rowGap="30px"
 			>
 				<GridItem area="title">
-					<Typography component="h1" className={classes.heading}>
-						Resume
-					</Typography>
+					<SectionTitle>Resume</SectionTitle>
 				</GridItem>
 				<GridItem area="content">
 					{/* Education */}

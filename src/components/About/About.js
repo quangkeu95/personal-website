@@ -10,6 +10,10 @@ import Typography from "@material-ui/core/Typography";
 import GridContainer from "../GridContainer";
 import GridItem from "../GridItem";
 import TemplateContainer from "../TemplateContainer";
+import SectionTitle from "../common/SectionTitle";
+
+import Slide from "react-reveal/Slide";
+import Flip from "react-reveal/Flip";
 
 const styles = theme => ({
 	title: {
@@ -17,9 +21,6 @@ const styles = theme => ({
 		fontWeight: "700",
 		color: "hsl(0, 0%, 13%)",
 		fontSize: "1em"
-	},
-	heading: {
-		fontWeight: "700"
 	},
 	bigAvatar: {
 		width: "200px",
@@ -35,44 +36,48 @@ const DescriptionContainer = props => {
 
 	return (
 		<Fragment>
-			<Typography
-				className={classes.title}
-				gutterBottom={true}
-				component="h2"
-			>
-				Who i am
-			</Typography>
-			<Typography align="left" paragraph={true}>
-				Hello, my name is Nguyen Le Quang, i live in Hanoi, Vietnam. I'm
-				a front-end developer who is passionate about building user
-				interface websites, bringing great user experiences, constantly
-				learning and sharing my knowledge with other developers around
-				me.
-			</Typography>
-			<Typography
-				className={classes.title}
-				gutterBottom={true}
-				component="h2"
-			>
-				What i do
-			</Typography>
-			<Typography align="left" paragraph={true}>
-				I've had 1+ years experience as a software developer and
-				primarily working on web development. I like mobile-first
-				reponsive design and always focus on using well-structured,
-				clear and maintainable coding style.
-			</Typography>
-			<Typography
-				className={classes.title}
-				gutterBottom={true}
-				component="h2"
-			>
-				My Interests
-			</Typography>
-			<Typography align="left" paragraph={true}>
-				Outside of coding, i have a number of other interests as well. I
-				love traveling and sport, especially football.
-			</Typography>
+			<Slide right cascade>
+				<div>
+					<Typography
+						className={classes.title}
+						gutterBottom={true}
+						component="h2"
+					>
+						Who i am
+					</Typography>
+					<Typography align="left" paragraph={true}>
+						Hello, my name is Nguyen Le Quang, i live in Hanoi,
+						Vietnam. I'm a front-end developer who is passionate
+						about building user interface websites, bringing great
+						user experiences, constantly learning and sharing my
+						knowledge with other developers around me.
+					</Typography>
+					<Typography
+						className={classes.title}
+						gutterBottom={true}
+						component="h2"
+					>
+						What i do
+					</Typography>
+					<Typography align="left" paragraph={true}>
+						I've had 1+ years experience as a software developer and
+						primarily working on web development. I like
+						mobile-first reponsive design and always focus on using
+						well-structured, clear and maintainable coding style.
+					</Typography>
+					<Typography
+						className={classes.title}
+						gutterBottom={true}
+						component="h2"
+					>
+						My Interests
+					</Typography>
+					<Typography align="left" paragraph={true}>
+						Outside of coding, i have a number of other interests as
+						well. I love traveling and sport, especially football.
+					</Typography>
+				</div>
+			</Slide>
 		</Fragment>
 	);
 };
@@ -88,9 +93,7 @@ const About = props => {
 				rowGap="30px"
 			>
 				<GridItem area="title">
-					<Typography component="h1" className={classes.heading}>
-						About me
-					</Typography>
+					<SectionTitle>About Me</SectionTitle>
 				</GridItem>
 				<GridItem>
 					<GridItem area="content">
@@ -119,10 +122,12 @@ const About = props => {
 								className={classes.fullHeight}
 							>
 								<GridItem area="avatar">
-									<Avatar
-										src={avatar}
-										className={classes.bigAvatar}
-									/>
+									<Flip left>
+										<Avatar
+											src={avatar}
+											className={classes.bigAvatar}
+										/>
+									</Flip>
 								</GridItem>
 								<GridItem
 									area="description"
